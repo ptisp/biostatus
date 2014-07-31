@@ -64,7 +64,8 @@ var Biostatus = function () {
           });
         } else {
           node.size = size;
-          node.color = color;
+          node.rgba = color;
+          node.status = servers[i].status;
         }
       }
 
