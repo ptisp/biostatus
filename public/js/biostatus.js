@@ -86,6 +86,11 @@ var Biostatus = function () {
       if(self.started === false) {
         self.started = true;
         self.sigma.startForceAtlas2();
+
+        setTimeout(function() {
+          self.sigma.stopForceAtlas2();
+          self.started = false;
+        }, 15000);
       }
     });
 
