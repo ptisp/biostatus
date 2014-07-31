@@ -34,41 +34,38 @@ var Biostatus = function () {
   this.connection.on('connect', function() {
 
     self.connection.on('servers', function (servers) {
-      for (var i = 0; i < servers.length; i++) {
-        var node = self.findNode(servers[i].id);
-        var size = 10;
-        var color = '#00FF00';
+      if(servers[i].connected === true) {
+        for (var i = 0; i < servers.length; i++) {
+          var node = self.findNode(servers[i].id);
+          var size = 10;
+          var color = '#00FF00';
 
-        if(servers[i].status == 'alarmed' || servers[i].status == 'fired') {
-          color = '#FF0000';
-          size = 20;
-        } else if(servers[i].status == 'warned') {
-          color = '#FFA500';
-          size = 15;
-        }
+          if(servers[i].status == 'alarmed' || servers[i].status == 'fired') {
+            color = '#FF0000';
+            size = 20;
+          } else if(servers[i].status == 'warned') {
+            color = '#FFA500';
+            size = 15;
+          }
 
-        if(servers[i].connected === false) {
-          color = '#000000';
-        }
-
-        if(!node) {
-          self.particles.push({
-            x: Math.round( Math.random() * self.width),
-            y:  Math.round( Math.random() * self.height),
-            rgba: color,
-            vx: Math.round( Math.random() * 3) - 1.5,
-            vy: Math.round( Math.random() * 3) - 1.5,
-            id: servers[i].id,
-            status: servers[i].status,
-            size : size
-          });
-        } else {
-          node.size = size;
-          node.rgba = color;
-          node.status = servers[i].status;
+          if(!node) {
+            self.particles.push({
+              x: Math.round( Math.random() * self.width),
+              y:  Math.round( Math.random() * self.height),
+              rgba: color,
+              vx: Math.round( Math.random() * 3) - 1.5,
+              vy: Math.round( Math.random() * 3) - 1.5,
+              id: servers[i].id,
+              status: servers[i].status,
+              size : size
+            });
+          } else {
+            node.size = size;
+            node.rgba = color;
+            node.status = servers[i].status;
+          }
         }
       }
-
     });
 
     console.log('Connected');
