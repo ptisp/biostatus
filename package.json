@@ -1,0 +1,12 @@
+{
+  "name": "biostatus",
+  "version": "0.0.1",
+  "dependencies": {
+    "express": "*",
+    "mongodb": "*",
+    "socket.io": "*",
+    "duplex-emitter": "*",
+    "mubsub": "*",
+    "async": "*"
+  }
+}
