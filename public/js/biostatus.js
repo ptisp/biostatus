@@ -34,8 +34,8 @@ var Biostatus = function () {
   this.connection.on('connect', function() {
 
     self.connection.on('servers', function (servers) {
-      if(servers[i].connected === true) {
-        for (var i = 0; i < servers.length; i++) {
+      for (var i = 0; i < servers.length; i++) {
+        if(servers[i].connected === true) {
           var node = self.findNode(servers[i].id);
           var size = 10;
           var color = '#00FF00';
