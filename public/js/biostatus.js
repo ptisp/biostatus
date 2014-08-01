@@ -16,7 +16,7 @@ var Biostatus = function () {
 
   setTimeout(function() {
     document.getElementById('github').remove();
-  }, 60000);
+  }, 30000);
 
   //if(window.innerHeight>500)
   //this.canvas.style.top = (window.innerHeight - this.canvas.height)/2+'px';
