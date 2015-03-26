@@ -6,7 +6,6 @@
     "mongodb": "*",
     "socket.io": "*",
     "duplex-emitter": "*",
-    "mubsub": "*",
     "async": "*"
   }
 }

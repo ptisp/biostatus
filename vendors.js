@@ -1,5 +1,4 @@
 var mongoClient = require('mongodb').MongoClient,
-  mubsub = require('mubsub'),
   config = require('./conf/config');
 
 var db = null;
@@ -15,11 +14,7 @@ exports.mongo = function(cb){
       console.log(err.message);
       throw new Error(err);
     } else {
-      db = conn;
-      var channel = mubsub(db).channel('pubsub');
-      channel.on('error', console.error);
-      exports.mongopubsub = channel;
-      cb(db);
+      cb(conn);
     }
   });
 };
