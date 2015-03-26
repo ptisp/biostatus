@@ -1,6 +1,15 @@
 {
   "name": "biostatus",
-  "version": "0.0.1",
+  "version": "0.0.2",
+  "description": "http//outke.pt",
+  "author": "Pedro Dias <petermdias@gmail.com>",
+  "maintainers": [
+    "apocas <petermdias@gmail.com>"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "http://github.com/ptisp/biostatus.git"
+  },
   "dependencies": {
     "express": "*",
     "mongodb": "*",

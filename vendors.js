@@ -5,8 +5,7 @@ var db = null;
 
 exports.mongo = function(cb){
   if(db){
-    cb(db);
-    return;
+    return cb(db);
   }
 
   mongoClient.connect('mongodb://' + config.mongo_host + ':' + config.mongo_port + '/' + config.mongo_database, function(err, conn) {
@@ -14,7 +13,8 @@ exports.mongo = function(cb){
       console.log(err.message);
       throw new Error(err);
     } else {
-      cb(conn);
+      db = conn;
+      return cb(db);
     }
   });
 };
